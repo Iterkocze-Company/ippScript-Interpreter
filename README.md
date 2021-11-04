@@ -8,7 +8,7 @@ List of current supported instructions:
 - `EchoLine`
 - `Echo`
 - int, strings, doubles, floats and chars.
-- Basic Arithmetic operations on variables, like adding two int together `x + y;` or adding numbers to vars like `x + 1;` 
+- Basic Arithmetic operations on variables, like adding two ints together `x + y;` or adding numbers to vars like `x + 1;` 
 
 #### Hello World in ippScript
 ```
