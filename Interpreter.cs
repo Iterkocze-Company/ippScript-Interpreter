@@ -66,7 +66,7 @@ namespace ippScriptInterpreter
                     afterFirst = afterFirst.Replace(toFirst, "");
                     SyntaxChecker.Analyse(line);
 
-                    switch (parts[a].Replace("\t", ""))
+                    switch (parts[a].Replace("\n", "").Replace("\t", ""))
                     {
                         case "EchoLine":
                             string textToEchoLine = line.Replace("\"", "").Replace("EchoLine", "").Replace("\t", "");

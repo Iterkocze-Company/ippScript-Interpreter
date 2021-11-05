@@ -15,11 +15,12 @@ namespace ippScriptInterpreter
         public static string CODE_FILE_PATH = "";
         public static int FILE_LEN = 0;
 
-        private static void HandleCompilerFlags(bool isCommandLine, string[] flags)
+        private static void HandleCompilerFlags(string[] flags)
         {
             foreach (string flag in flags)
             {
-                if (flag.Trim().Contains(".ipps")) CODE_FILE_PATH = flag;
+                if (flag.Trim().Contains(".ipps")) CODE_FILE_PATH = Path.GetFullPath(flag);
+                if (flag.Trim().Contains(".ipp")) CODE_FILE_PATH = Path.GetFullPath(flag);
             }
         }
 
@@ -33,7 +34,7 @@ namespace ippScriptInterpreter
             }
             else
             {
-                CODE_FILE_PATH = path;
+                CODE_FILE_PATH = Path.GetFullPath(path);
                 FILE_LEN = File.ReadLines(path).Count();
                 return true;
             }
@@ -47,12 +48,12 @@ namespace ippScriptInterpreter
             {
                 Console.Write("Enter ipps code file path: ");
                 bool opt = SetFilePath(Console.ReadLine());
-                if (opt) HandleCompilerFlags(false, args);
+                if (opt) HandleCompilerFlags(args);
                 if (opt) Interpreter.Interpret();
             }
             else
             {
-                HandleCompilerFlags(true, args);
+                HandleCompilerFlags(args);
                 Interpreter.Interpret();
             }
         }
