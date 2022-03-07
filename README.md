@@ -1,3 +1,5 @@
+# ippScript is deprecated! Use IterkoczeScript instead: https://github.com/Iterkocze-Company/IterkoczeScript
+
 # ippScript-Interpreter
 Interpreter for ippScript.
 
